@@ -4,17 +4,16 @@ pragma solidity ^0.8.9;
 
 import "erc721a/contracts/ERC721A.sol";
 
-contract nomme is ERC721A {
+contract Nomme is ERC721A {
     address public owner;
 
     uint256 public maxQuantity = 5;
 
-    
-    string baseUrl =
-        "https://indigo-immense-barnacle-223.mypinata.cloud/ipfs/QmYAguVHDGpTpHTP1bpG9VmVhZHJt5RHQii4TvAxbCWUqo/";
+    string public baseURI =
+        "";
 
+    string public description = "not me";
 
-    string public prompt = "not me";
     constructor() ERC721A("CuteCats", "CC") {
         owner = msg.sender;
     }
@@ -33,10 +32,10 @@ contract nomme is ERC721A {
     }
 
     function _baseURI() internal view override returns (string memory) {
-        return baseUrl;
+        return baseURI;
     }
 
-    function promptDescription() external view returns (string memory) {
-        return prompt;
+    function getDescription() external view returns (string memory) {
+        return description;
     }
 }
