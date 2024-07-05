@@ -13,7 +13,7 @@ async function batchMintTokens(privateKey, contractAddress, numTokens) {
     const signer = new ethers.Wallet(privateKey, provider);
 
     // Get the contract factory and attach it to the signer
-    const NFT = await ethers.getContractFactory("nomme", signer);
+    const NFT = await ethers.getContractFactory("CuteCats", signer);
     const contract = await NFT.attach(contractAddress);
 
     // Call the mint function on the contract to mint 'numTokens' tokens
@@ -29,8 +29,7 @@ async function batchMintTokens(privateKey, contractAddress, numTokens) {
 
 async function main() {
   const privateKey = process.env.PRIVATE_KEY;
-  const contractAddress = "0xB72c286F1fD6a8121466F3b611819d4b0afC00A6";
-
+  const contractAddress = "0xcD2A70EF7B554A437bf0a2E9B3fF95298FfD2991";
   // Batch mint 5 tokens
   await batchMintTokens(privateKey, contractAddress, 5);
 }
